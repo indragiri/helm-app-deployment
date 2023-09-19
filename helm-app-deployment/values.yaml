@@ -79,6 +79,8 @@ hpa:
   enabled: false
 config:
   KUBERNETES_REPLICAS: ""
+sealedSecret:
+  enabled: false
 cron:
   enabled: false
   schedule: "* * * * *"
