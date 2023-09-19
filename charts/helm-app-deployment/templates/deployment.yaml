@@ -49,6 +49,7 @@ spec:
         envFrom:
         - configMapRef:
             name: {{ template "application.name" . }}
+        envFrom:
         - secretRef:
             name: {{ template "application.name" . }}
         env:
