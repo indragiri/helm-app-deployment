@@ -24,6 +24,8 @@ spec:
         release: {{ .Release.Name }}
     spec:
       restartPolicy: Never
+      imagePullSecrets:
+        - name: {{ .Values.deployment.imagePullSecrets.name }}
       containers:
       - command:
           {{- range .Values.application.migrationEntrypointCommand }}
@@ -36,6 +38,10 @@ spec:
         envFrom:
         - configMapRef:
             name: {{ template "application.name" . }}
+{{- if .Values.sealedSecret.enabled }}
+        - secretRef:
+            name: {{ template "application.name" . }}
+{{- end }}
         name: {{ template "application.name" . }}
         image: {{ if (.Values.image.path) }} "{{ .Values.image.path }}:{{ .Values.image.tag }}" {{else}} "{{ .Values.image.repository }}/{{ .Values.image.bucketName }}:{{ .Values.image.tag }}" {{end}}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
