@@ -21,7 +21,7 @@ spec:
       maxSurge : {{ .Values.deployment.strategy.rollingUpdate.maxSurge}}
     {{ else }}
     rollingUpdate: null
-    {{- end -}}
+    {{ end }}
   selector:
     matchLabels:
       app: {{ template "application.name" . }}
