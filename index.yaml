@@ -3,6 +3,15 @@ entries:
   helm-app-deployment:
   - apiVersion: v1
     appVersion: "1"
+    created: "2024-02-20T04:53:04.155159001Z"
+    description: A Helm chart for Kubernetes application deployment
+    digest: dba0fc135531f7ed680b6d58ff71044f9417406d3cfcc588192a52d4328ff92e
+    name: helm-app-deployment
+    urls:
+    - https://github.com/indragiri/helm-app-deployment/releases/download/helm-app-deployment-0.2.1/helm-app-deployment-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v1
+    appVersion: "1"
     created: "2024-02-20T04:12:38.936906656Z"
     description: A Helm chart for Kubernetes application deployment
     digest: 90d086ac2993ccbec1cab677fb4bf42b249d241cd51a64ff22dc584ce9dab8a2
@@ -73,4 +82,4 @@ entries:
     urls:
     - https://github.com/indragiri/helm-app-deployment/releases/download/helm-app-deployment-0.1.2/helm-app-deployment-0.1.2.tgz
     version: 0.1.2
-generated: "2024-02-20T04:12:38.936944918Z"
+generated: "2024-02-20T04:53:04.155218712Z"
