@@ -22,7 +22,6 @@ spec:
     {{ else }}
     rollingUpdate: null
     {{- end -}}
-
   selector:
     matchLabels:
       app: {{ template "application.name" . }}
