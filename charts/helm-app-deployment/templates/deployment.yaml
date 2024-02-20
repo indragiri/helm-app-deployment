@@ -14,10 +14,14 @@ metadata:
 spec:
   replicas: !!int {{ if (.Values.config.KUBERNETES_REPLICAS) }} {{ .Values.config.KUBERNETES_REPLICAS }} {{else}}{{ .Values.deployment.replicas }}{{end}}
   strategy:
+    type: {{ .Values.deployment.strategy.type }}
+    {{ if eq .Values.deployment.strategy.type "RollingUpdate" }}
     rollingUpdate:
       maxUnavailable: {{ .Values.deployment.strategy.rollingUpdate.maxUnavailable}}
       maxSurge : {{ .Values.deployment.strategy.rollingUpdate.maxSurge}}
-    type: {{ .Values.deployment.strategy.type }}
+    {{ else }}
+    rollingUpdate: null
+    {{- end -}}
   selector:
     matchLabels:
       app: {{ template "application.name" . }}
